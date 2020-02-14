@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1250">
+    <title>Letadla CentoOS</title>
+
+</head>
+	<body>
+		<h1>Nejlepsi letadlo</h1>
+		<button onclick="httpGet()">Zobraz!</button>
+		<p id="demo"></p>
+		<script>
+			function httpGet() {
+			 
+			   var apiUrl = 'http://localhost:8081';
+				fetch(apiUrl).then(response => {
+				  return response.json();
+				}).then(data => {
+				  console.log(data);
+				  document.getElementById("demo").innerHTML = data.glider;
+				}).catch(err => {
+					//error
+					console.log('error');
+				});				
+			}
+		</script>
+	</body>
+</html>
